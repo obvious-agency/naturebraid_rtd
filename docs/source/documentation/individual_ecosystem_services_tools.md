@@ -234,8 +234,6 @@ The export coefficients were originally calculated at small-catchment scale. At 
 
 ### Input
 
-
-
 - **Output folder:** Specify the path and folder where output from this tool should be stored. 
 
 - **Input: Study area baseline folder:** Specify the path and folder where files are stored from running the **Generate Baseline** tool. 
@@ -261,8 +259,6 @@ The export coefficients were originally calculated at small-catchment scale. At 
 ### Output
 
 Within the output folder are additional output files showing instream nutrient concentration, input to lakes, and concentrations at the lake outlet.
-
-
 
 - **Nitrogen load (N_load):** This map shows the total nitrogen load (in kg/ha/yr) generated at any point within the landscape. Accuracy reflects that of the input data on land use and the relevant LUCI export coefficient. 
 
@@ -317,8 +313,6 @@ The export coefficients were originally calculated at small-catchment scale. At 
 
 Within the output folder are additional output files showing instream nutrient concentration, input to lakes, and concentrations at the lake outlet.
 
-
-
 - **Phosphorus load (P_load):** This map shows the total P load (in g/ha/yr) generated at any point within the landscape. 
 
 - **Phosphorus accumulated load (P_AccLoad):** This map shows the accumulated total P load (in g/yr), considering the load not just at a point, but also that contributed from "uphill" sources. High values are prime targets for mitigation / interception opportunities. 
@@ -344,8 +338,6 @@ Within the output folder are additional output files showing instream nutrient c
 This tool estimates the annual soil loss (tons/km2/yr) using the Revised Universal Soil Loss Equation (RUSLE) approach, and sediment delivery vulnerability depending on whether the soil loss is occurring on non-mitigated land. There are multiple approaches to calculating the rainfall erosivity and the slope length-steepness factor.
 
 ### Input
-
-
 
 - **Output folder:** Specify the path and folder where output from this tool should be stored. 
 

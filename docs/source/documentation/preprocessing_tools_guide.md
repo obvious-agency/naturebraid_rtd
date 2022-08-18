@@ -33,6 +33,7 @@ The only preprocessing tool within LUCI is the *Generate* Baseline tool which mu
     If you have detailed information about your landcover product to be used within LUCI, you may use user-defined landcover which requires a landcover shapefile and a land cover linking table. This linking table should contain the relevant fields and information to be used by LUCI. This will be used in the parameter *Land cover linking table* below.
 
     (Table 3: Land cover products supported by LUCI)
+
     | Land cover product | Land cover linking code | Provider |
     | --- | --- | --- |
     | Land Cover Map 2007 (LCM2007) | INTCODE | Centre for Ecology and Hydrology, United Kingdom |
@@ -54,6 +55,7 @@ The only preprocessing tool within LUCI is the *Generate* Baseline tool which mu
     If you have detailed information about your soil product to be used within LUCI, you may use user-defined soil which requires a soil shapefile and a soil linking table. This linking table should contain the relevant fields and information to be used by LUCI. This will be used in the parameter *Soil linking table* below.
 
     (Table 4: Soil products supported by LUCI)
+
     | Soil product | Soil linking code | Provider |
     | --- | --- | --- |
     | Soilscapes | SS_ID | Cranfield, United Kingdom |
@@ -92,6 +94,7 @@ The only preprocessing tool within LUCI is the *Generate* Baseline tool which mu
 - **Stream smooth drop buffer distance (m), stream smooth drop (m), and stream drop (m):** These three parameters influence the stream reconditioning as seen below:
 
     (Figure 2: Diagram of the stream reconditioning parameters at the stream cross-section)
+    
     ![Diagram of the stream reconditioning parameters at the stream cross-section](images/diagram_of_the_stream_reconditioning_parameters_at_the_stream_cross-section.png)
 
 - **Minimum lake area threshold (ha):** Specify the minimum area threshold in hectares (ha) for a water body to be considered a lake and for output from that water body to be generated.

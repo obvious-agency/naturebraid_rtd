@@ -21,6 +21,7 @@ The LUCI (Land Utilisation and Capability Indicator) model, is a second-generati
 Ecosystem service condition is assigned based on nationally-available datasets (enhanced with local data where available), on topography (raster DEM), stream network (vector polyline format), precipitation and evapotranspiration (raster format), land cover and soil type (vector polygon format). These are linked to lookup tables and processed within the model, with simulation of connectivity through cost distance approaches for habitat and topographic routing for hydrological and associated services. The topographic routing approach enables explicit simulation of movement of water and difuse pollution over the landscape, as well as identifcation of features which help to mitigate risk of flash flood and in-stream pollution. The model runs at catchment scale with a fine resolution, enabling assessment of the impact of farm scale interventions at catchment scale. The model also identities opportunities to improve ecosystem service condition, and these output maps can be used for decision support. Tradeoffs and synergies between individual service provisions are modelled explicitly to support such decision making. The LUCI framework is designed to follow the following principles:
 
 (Table 1: Principles of the LUCI framework)
+
 | Practical | Conceptual |
 |--------------|-----------|
 | Can be run using nationally available data; i.e. available everywhere so *relevant to national spatial planning* | Operates at a spatial scale *relevant for field and sub-field level management decisions* |
@@ -53,6 +54,7 @@ Because of its effcient numerical implementation, LUCI is fast-running and runs 
 A number of national datasets are supported for United Kingdom and New Zealand applications; for other countries it is currently necessary to match land cover and soil information into the supported classiffcation systems. Support for a broader range of datasets will be added in the future. Suggested/default parameters are provided with LUCI; see the individual tool documentation for more detail.
 
 (Table 2: Services, description, and method of the ES modelled by LUCI)
+
 | Service | Description | Method |
 |---|---|---|
 | Agricultural productivity | Evaluates the potential, current, and optimal agricultural productivity | Based on slope, fertility, drainage, aspect, climate |
