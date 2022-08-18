@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'nature_braid_demo'
+project = 'Nature Braid Documentation'
 copyright = '2022, Nature Braid'
 author = 'Nature Braid team'
 
