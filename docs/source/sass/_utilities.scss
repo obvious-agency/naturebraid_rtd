@@ -1,0 +1,20 @@
+.align-center,
+.centered {
+  @extend .text-center;
+}
+
+.with-border {
+  @extend .border;
+}
+
+.with-shadow {
+  @extend .shadow-sm;
+}
+
+.cc {
+  clear: both;
+}
+
+.rubric {
+  font-weight: $font-weight-bold;
+}

@@ -1,0 +1,39 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+.tern-project
+
+### VSCode ###
+.vscode/
+*.code-workspace
+
+# Generated files
+*.log
+*.pot
+*.pyc
+*.egg-info/
+__pycache__
+.python-version
+*.map
+dump.rdb
+node_modules/
+.direnv/
+package-lock.json
+build/
+
+# Project Specific Stuff
+local_settings.py
+/static/
+dist/
+media/
+.env*
+personal_notes.txt
+db.sqlite3
+notes.MD

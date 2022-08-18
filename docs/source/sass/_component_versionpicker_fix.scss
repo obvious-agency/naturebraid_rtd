@@ -1,0 +1,73 @@
+/*
+This file contains overrides for the default styles of the READTHEDOCS version picker.
+These overrides are necessary to make the version picker work with the Sphinx Wagtail Theme.
+*/
+
+.rst-versions {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  max-width: 300px;
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
+  background: #1f1d1d;
+  // font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+  z-index: 400;
+
+  &.shift-up .rst-other-versions {
+    display: block;
+  }
+
+  a {
+    color: #2980b9;
+    text-decoration: none;
+  }
+}
+
+.rst-current-version {
+  display: block;
+  padding: 12px;
+  text-align: end;
+  font-size: 90%;
+  cursor: pointer;
+  background-color: $indigo;
+  color: $white;
+  *zoom: 1;
+
+  span.fa-book {
+    display: none;
+  }
+}
+
+.rst-versions .rst-other-versions {
+  font-size: 90%;
+  padding: 12px;
+  color: #808080;
+  display: none;
+}
+
+.rst-versions .rst-other-versions hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  margin: 20px 0;
+  padding: 0;
+  border-top: solid 1px #413d3d;
+}
+
+.rst-versions .rst-other-versions dd {
+  display: inline-block;
+  margin: 0;
+}
+
+.rst-versions .rst-other-versions dd a {
+  display: inline-block;
+  padding: 6px;
+  color: #fcfcfc;
+}
+
+@media screen and (max-width: $medium-width) {
+  .rst-versions {
+    display: none;
+  }
+}

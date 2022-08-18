@@ -1,0 +1,13 @@
+{
+  "name": "rtd_demo",
+  "scripts": {
+    "watch": "sass --watch ./docs/source/sass/custom.scss ./docs/source/_static/css/custom.css",
+    "build": "sass ./docs/source/sass/custom.scss ./docs/source/_static/css/custom.css"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "bootstrap": "^4.4.1",
+    "package.json": "^2.0.1",
+    "sass": "^1.54.4"
+  }
+}

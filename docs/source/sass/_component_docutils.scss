@@ -1,0 +1,72 @@
+/**
+* Misc
+*/
+
+.clear-both {
+  clear: both;
+}
+
+/**
+* Headerlink
+*/
+
+.headerlink {
+  position: relative;
+  font-size: 0.65em;
+  visibility: hidden;
+  top: -0.15em;
+
+  &:after {
+    @include icon-base;
+    content: fa-content($fa-var-link);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+*:hover > .headerlink:after {
+  visibility: visible;
+}
+
+/**
+* Tables
+*/
+
+table.docutils {
+  &:not(.field-list) {
+    border: 0;
+    @extend .table;
+    @extend .table-bordered;
+    @extend .table-striped;
+
+    thead {
+      @extend .thead-light;
+    }
+  }
+
+  &.field-list {
+    .field-name {
+      padding-right: 1rem;
+    }
+  }
+}
+
+.table-responsive {
+  table.docutils {
+    margin-bottom: 0;
+  }
+  margin-bottom: $spacer;
+}
+
+// Add ample spacing between sub-headings within the doc.
+main {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: calc($headings-margin-bottom * 3);
+  }
+}
