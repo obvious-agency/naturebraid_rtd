@@ -1,38 +1,44 @@
 # Preprocessing tools guide
 
-## Summary
+The preprocessing tools **must** be run before any of the other tools within the NB Python toolbox as they generate the input necessary to the other models within the toolbox.
 
-The only preprocessing tool within LUCI is the *Generate* Baseline tool which must be run before any ecosystem services tools, and rerun to produce new land cover scenarios. The purpose of the preprocessing is two-fold:
+## Generate Baseline
 
-- Generate the hydrological and topographical information by reconditioning the input DEM by filling depressions and using an approach based on the AGREE method to burn river networks into the elevation data.
+### Summary
 
-- Generate the land management scenario using the soil and land cover provided by the user and comparing the classes to lookup tables that have the information required by LUCI's ecosystem services
+The *Generate Baseline* tool must be run before any ecosystem services tools, and rerun if inputs such as the DEM, soils, climate, etc have changed. (**Note:** If land cover has changed, you may use the *Generate new land cover scenario* as long as the new input land cover has full coverage over the study area.) The purpose of the preprocessing is two-fold:
 
-## Input
+- Generate the hydrological and topographical information by reconditioning the input DEM by filling depressions and using an approach based on the [AGREE method](https://www.caee.utexas.edu/prof/maidment/gishydro/ferdi/research/agree/agree.html) to burn river networks into the elevation data.
 
-- **Output folder for LUCI Baseline:** Specify the path and folder name where output from this tool should be stored.
+- Generate the land management scenario using the soil and land cover provided by the user and comparing the classes to lookup tables that have the information required by NB's ecosystem services
 
-- **Digital elevation model (DEM):** The DEM should be in GRID format and the recommended spatial resolution for use in LUCI is 5 to 10 m. The choice of resolution is very important. LUCI produces quantification and classification of ecosystem performance at the grid square scale i.e. for every grid square. If the DEM data is coarse, but vegetation, soil or other input data is of fine resolution, it is recommended that the DEM be resampled to a finer resolution. This is necessary to ensure the effect of, for example, small area vegetation or mangement interventions are accounted for. Resampling will not change topographical routing capabilities though and this will still be limited by the resolution of the original dataset.
+### Input
 
-- **Study area mask:** This shapefile sets the boundaries or extent for LUCI processing. All other inputs are clipped to the same extent.
+- **Output folder for NB Baseline:** Specify the path and folder name where output from this tool should be stored.
+
+- **Digital elevation model (DEM):** The DEM should be in GRID format and the recommended spatial resolution for use in LUCI is 5 to 10 m. The choice of resolution is very important. NB produces quantification and classification of ecosystem performance at the grid square scale i.e. for every grid square. If the DEM data is coarse, but vegetation, soil or other input data is of fine resolution, it is recommended that the DEM be resampled to a finer resolution. This is necessary to ensure the effect of, for example, small area vegetation or mangement interventions are accounted for. Resampling will not change topographical routing capabilities though and this will still be limited by the resolution of the original dataset.
+
+- **Study area mask:** This shapefile sets the boundaries or extent for NB processing. All other inputs are clipped to the same extent.
 
 - **Include uphill / upstream contributing area?:** Choose from the dropdown options below:
 
-    - *No; calculate farm in isolation:* This option will only consider the farm area and will not consider any area uphill or upstream of the farm, even if it contributes overland, near-surface or stream run-off to the farm.
+    - *No; calculate study area in isolation:* This option will only consider the study area and will not consider any area uphill or upstream of the study area, even if it contributes overland, near-surface or stream run-off to the study area.
 
-    - *Yes; include uphill contributing areas:* This option considers the farm plus a surrounding area. The surrounding area includes hillslopes which route overland and near-surface flow of water and diffuse pollution into the farm. **Note:** If using this option, the land use and soil shapefiles are recommended to have the same coverage of the DEM.
+    - *Yes; include uphill contributing areas:* This option considers the study area plus a surrounding area. The surrounding area includes hillslopes which route overland and near-surface flow of water and diffuse pollution into the study area. **Note:** If using this option, the land use and soil shapefiles are recommended to have the same coverage as the DEM.
 
-    - *Yes; include uphill areas plus upstream watersheds:* This option considers the farm plus a surrounding area. The surrounding area includes hillslopes which route overland and near-surface flow of water and diffuse pollutants into the study area, as well as watersheds draining streams that enter the farm. **Note:** If using this option, the land use and soil shapefiles are recommended to have the same coverage of the DEM.
+    - *Yes; include uphill areas plus upstream watersheds:* This option considers the study area plus a surrounding area greater than the previous option. The surrounding area includes hillslopes which route overland and near-surface flow of water and diffuse pollutants into the study area, as well as watersheds draining streams that enter the study area. **Note:** If using this option, the land use and soil shapefiles are recommended to have the same coverage as the DEM.
 
-- **Land cover dataset, land cover data source, and land cover linking code:** These three parameters relate to the input land cover dataset, which must be in polygon format. The land cover data source is specified in the table below. The land cover linking code is the main identifier field in the input land cover attribute table and is associated with the land cover classification of that data source. The land cover shapefile **must** have a field with the name of the *Land cover linking code* below and the correct classification. For example, if the user is using the product Land Cover Database 4 (LCDB4), the attribute table of the shapefile must contain the **CLASS_2012** field.
+- **Land cover dataset, land cover data source, and land cover linking code:** These three parameters relate to the input land cover dataset, which must be in polygon format. The land cover data source is specified in the table below. The land cover linking code is the main identifier field in the input land cover attribute table and is associated with the land cover classification of that data source. The land cover shapefile **must** have a field with the name of the *Land cover linking code* below and the correct classification. For example, if the user is using the product Land Cover Database 5 ([NZ LCDB5](https://lris.scinfo.org.nz/layer/104400-lcdb-v50-land-cover-database-version-50-mainland-new-zealand/)), the attribute table of the shapefile must contain the **CLASS_2018** field.
 
-    This input data will feed through into many of the ecosystem service model outputs, so it is important to be aware of errors and uncertainties. These may be due to land use change occurring since the dataset was created, or mis-classification of land cover, due to the way in which remotely sensed data have been processed.
+This input data will feed through into many of the ecosystem service model outputs, so it is important to be aware of errors and uncertainties. These may be due to land use change occurring since the dataset was created, or mis-classification of land cover, due to the way in which remotely sensed data have been processed.
 
-    To use another landcover data product, you would need to create a new column in your dataset that correlates to an equivalent value in one of the supported data products; all model output would then be subject to additional error in terms of the differences between real and assigned landcover, in terms of how the model has been parameterised for the supported landcover product.
-    
-    If you have detailed information about your landcover product to be used within LUCI, you may use user-defined landcover which requires a landcover shapefile and a land cover linking table. This linking table should contain the relevant fields and information to be used by LUCI. This will be used in the parameter *Land cover linking table* below.
+To use another landcover data product that is not yet supported by NB, you have two options:
 
-    (Table 3: Land cover products supported by LUCI)
+1. *Correlate your dataset to an existing supported data product:* You would need to create a new column in your dataset that correlates to an equivalent value in one of the supported data products. **Note:** all model output would then be subject to additional error in terms of the differences between real and assigned landcover, in terms of how the model has been parameterised for the supported landcover product.
+
+2. *Generate your own user-defined parameterisation:* If you have detailed information about your landcover product to be used within NB, you may use user-defined landcover which requires a landcover shapefile and a land cover linking table, both of which have a field with the same name that links the land cover types in the polygon with the land cover information in the table. This linking table should contain the relevant fields and parameterisation information required by NB. The parameter *Land cover linking table* should be populated.
+
+    (Table 3: Land cover products supported by NB)
 
     | Land cover product | Land cover linking code | Provider |
     | --- | --- | --- |
@@ -43,45 +49,48 @@ The only preprocessing tool within LUCI is the *Generate* Baseline tool which mu
     | Land Cover Database 2 (LCDB2) | LCDB2CLASS | Landcare, New Zealand |
     | Land Cover Database 3 (LCDB3) | LCDB3CLASS | Landcare, New Zealand |
     | Land Cover Database 4 (LCDB4) | CLASS_2012 | Landcare, New Zealand |
+    | Land Cover Database 5 (LCDB5) | CLASS_2018 | Landcare, New Zealand |
     | CORINE Land Cover (CORINE) | GRID_CODE | European Environment Agency |
     | National Land Cover Database 2011 (NLCD 2011) | VALUE | Multi-Resolution Land Characteristics, United States of America |
+    | User-defined land cover (usually local or regional) | Any field, but must be the same as in the linking table | Usually local providers |
 
-- **Soil dataset, soil data source, and soil linking code:** These three parameters relate to the input soil dataset, which must be in polygon format. The soil data source is specified in the table below. The soil linking code is the main identifier field in the input soil attribute table and is associated with the soil classification of that data source. The soil shapefile **must** have a field with the name of the *Soil linking code* below and the correct classification. For example, if the user is using the product Soilscapes, the attribute table of the shapefile must contain the **SS_ID** field.
+- **Soil dataset, soil data source, and soil linking code:** These three parameters relate to the input soil dataset, which must be in polygon format. The soil data source is specified in the table below. The soil linking code is the main identifier field in the input soil attribute table and is associated with the soil classification of that data source. The soil shapefile **must** have a field with the name of the *Soil linking code* below and the correct classification. For example, if the user is using the product [Soilscapes](https://www.cranfield.ac.uk/themes/environment-and-agrifood/landis/soilscapes), the attribute table of the shapefile must contain the **SS_ID** field.
 
-    This input data will feed through into many of the ecosystem service model outputs, so it is important to be aware of errors and uncertainties. Soil mapping is often based on a limited number of samples, and the use of other datasets on geology and topography.
+This input data will feed through into many of the ecosystem service model outputs, so it is important to be aware of errors and uncertainties. Soil mapping is often based on a limited number of samples, and the use of other datasets on geology and topography.
 
-    To use another soil data product, you would need to create a new column in your dataset that correlates to an equivalent value in one of the supported data products; all model output would then be subject to additional error in terms of the differences between real and assigned soil, in terms of how the model has been parameterised for the supported soil product.
+To use another soil data product, you have the same options as the land cover:
 
-    If you have detailed information about your soil product to be used within LUCI, you may use user-defined soil which requires a soil shapefile and a soil linking table. This linking table should contain the relevant fields and information to be used by LUCI. This will be used in the parameter *Soil linking table* below.
+1. *Correlate your dataset to an existing supported data product:* You would need to create a new column in your dataset that correlates to an equivalent value in one of the supported data products; all model output would then be subject to additional error in terms of the differences between real and assigned soil, in terms of how the model has been parameterised for the supported soil product.
 
-    (Table 4: Soil products supported by LUCI)
+2. *Generate your own user-defined parameterisation:* If you have detailed information about your soil product to be used within NB, you may use user-defined soil which requires a soil shapefile and a soil linking table. This linking table should contain the relevant fields and information to be used by NB. This will be used in the parameter *Soil linking table* below.
+
+    (Table 4: Soil products supported by NB)
 
     | Soil product | Soil linking code | Provider |
     | --- | --- | --- |
     | Soilscapes | SS_ID | Cranfield, United Kingdom |
     | NATMAP | MUSID | Cranfield, United Kingdom |
-    | Fundamental Soils Layer (FSL) | SOIORDER | Landcare, New Zealand |
+    | Fundamental Soils Layer (FSL) | ORDER_ | Landcare, New Zealand |
     | S-Map | smapSib1 | Landcare, New Zealand |
+    | User-defined soil data (usually local or regional) | Any field, but must be the same as in the linking table | Usually local providers |
 
 - **Gridded annual rainfall (mm):** This gridded raster should contain rainfall values in millimetres (mm) per year. Gridded rainfall is used in conjunction with evapotranspiration data to calculate effective rainfall for input to flow and diffuse pollution routing calculations. If this gridded raster layer is provided, accumulation of water, sediment and chemicals in the landscape will adjust to respect the overall spatial pattern in evapotranspiration, where appropriate. Lower resolution than DEM is permitted, since data are unlikely to be available at such fine resolution.
-
-    For New Zealand, a 500m gridded data product is available for download with the tool and can be accessed by running the **Initialise LUCI** tool. This provides a good resolution to represent spatial pattern of rainfall, which will increase confidence in model output. This dataset will be used unless user input data on rainfall are provided (e.g. for climate scenarios). 
 
 - **Annual rainfall value (mm):** Specify the annual rainfall amount received by the study area in millimetres (mm) per year.
 
 - **Gridded annual evaporation (mm):** This gridded raster should contain evapotranspiration values in millimetres (mm) per year. Gridded evapotranspiration data is used in conjunction with rainfall data to calculate effective rainfall for input to flow and diffuse pollution routing calculations.
 
-    For New Zealand, a 500m gridded data product is available for download with the tool and can be accessed by running the **Initialise LUCI** tool.
-
 - **Annual evaporation value (mm):** Specify the annual evaporation value of the study area in millimeters (mm) per year.
 
-- **Stream network option and Stream network:** These parameter influences where LUCI places streams in the study area. Choose from the dropdown options for *Stream network option:*
+- **Rainfall and evaporation timeseries (mm) in csv format:** Specify the path and filename of the .CSV file that contains one year's worth of climate data for the study area. The CSV should contain a header and contain three columns: Date/Time, Rainfall in mm, and Evapotranspiration in mm. This CSV is used to further process the gridded annual rainfall and evapotranspiration to better reflect study area characteristics.
+
+- **Stream network option and Stream network:** These parameter influences where NB places streams in the study area. Choose from the dropdown options for *Stream network option:*
 
     - *Generate river network directly from DEM:* This option uses the DEM topography to determine where streams should be burned.
 
     - *Burn in user-defined stream:* This option allows users to define their own stream network. The stream network must be a polyline shapefile. The path to and file name of the stream network must be specified in the Stream network parameter
 
-- **Accumulation threshold for stream initiation, major rivers, and ephemeral streams:** These three parameters influence where LUCI models streams based on the flow accumulation of that cell. Default values are provided for generally temperate environments and hilly topography. For areas with flatter topography, it is recommended to raise the default values by a factor of 5 to 10. It is recommended to iterate through and test which values would produce a stream network closer to reality.
+- **Accumulation threshold for stream initiation, major rivers, and ephemeral streams:** These three parameters influence where NB models streams based on the flow accumulation of that cell. Default values are provided for generally temperate environments and hilly topography. For areas with flatter topography, it is recommended to raise the default values by a factor of 5 to 10. It is recommended to iterate through and test which values would produce a stream network closer to reality.
 
 - **Point water additions/subtractions:** This input should contain a point shapefile of locations associated with additions (e.g. springs) or subtractions (e.g. irrigation takes) of water to or from the stream network.
 
@@ -103,7 +112,7 @@ The only preprocessing tool within LUCI is the *Generate* Baseline tool which mu
 
 - **Elevation modifications:** This input should contain a polygon or polyline shapefile of locations where elevation is different to that shown in the DEM. For example, where elevated flood stopbanks are located.
     
-    The data must include an attribute table column, headed 'metres_chg', giving the elevation of the feature in metres. Be wary of putting in small or narrow modifications as LUCI will modify whole DEM grid squares that intersect with each polyline or polygon.
+    The data must include an attribute table column, headed 'metres_chg', giving the elevation of the feature in metres. Be wary of putting in small or narrow modifications as NB will modify whole DEM grid squares that intersect with each polyline or polygon.
 
 - **Are elevation modifications relative (box ticked) or absolute (box unticked)?:** If this option is ticked/true, input modifications to the elevation are added (for a decrease in height, put a negative number). If it is not ticked/false, the input elevation modifications will be assumed to be absolute, and relative to sea level.
 
@@ -131,6 +140,10 @@ The only preprocessing tool within LUCI is the *Generate* Baseline tool which mu
     
 - **New land cover or Scenario:** This polygon shapefile is a required input if you plan to run the England and Wales carbon model for the LULUCF level of soil aggregation (code 14). It is an optional input for the fully disaggregated carbon model (code 15). This layer must have the same "land cover linking code", i.e. main identifier code, as the input land cover.
 
-## Output
+### Output
 
 None of the files produced by this tool are considered to be fundamental LUCI output, rather they are intermediate files for use by the single services functions described later. The output folder contains a variety of rasters and shapefiles used by LUCI to generate various single services calculation.
+
+## Generate new land cover scenario
+
+This tool can be run *after* running the *Generate Baseline* tool if the user has a new land cover dataset that can be compared to the old/baseline/previous one. For example, the user may have land cover from a previous year (e.g. NZLCDB v5.0 has information from summer 1996/97, summer 2001/02, summer 2008/09, summer 2012/13, and summer 2018/19 periods) and wish to see what was the effect of land cover changes on ecosystem services. As long as this other land cover dataset has full coverage of the study area, this tool can be used.
