@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -10290,6 +10291,43 @@ These overrides are necessary to make the version picker work with the Sphinx Wa
 
 .rubric {
   font-weight: 700;
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+  color: #1C272F;
+}
+body a,
+body .page-toc a {
+  color: #1C272F;
+  text-decoration-color: #03AAA2;
+}
+body a:hover, body a:focus,
+body .page-toc a:hover,
+body .page-toc a:focus {
+  color: #03AAA2;
+  text-decoration-color: #027872;
+}
+
+a.text-light:hover, a.text-light:focus {
+  color: #03AAA2 !important;
+  text-decoration: 2px solid underline;
+  text-decoration-color: #027872 !important;
+}
+
+header.bg-primary,
+footer.bg-primary {
+  background-color: #1C272F !important;
+}
+
+header .navbar {
+  padding: 0;
+}
+
+.navbar-brand .logo-img {
+  height: 3rem !important;
+  width: auto !important;
+  margin: 1.75rem 3rem 1.75rem calc(3rem - 20px);
 }
 
 /*# sourceMappingURL=custom.css.map */

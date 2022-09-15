@@ -1,3 +1,6 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
 // variables
 @import "variables";
 
@@ -32,3 +35,7 @@
 
 // misc
 @import "utilities";
+
+
+// custom styling (override the existing styling)
+@import "./customisation"

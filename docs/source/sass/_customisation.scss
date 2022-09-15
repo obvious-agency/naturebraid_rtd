@@ -1,0 +1,56 @@
+// variables
+$white: white;
+$grey: #F4F4F1;
+$black: #1C272F;
+$orange: #FDB639;
+$brown: #8E3927;
+$blue: #22C1DE;
+$teal: #03AAA2;
+$teal2: #0D706D;
+$green: #76AF42;
+
+$dark-grey: #666;
+
+
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    color: $black;
+
+    a,
+    .page-toc a {
+        color: $black;
+        text-decoration-color: $teal;
+
+        &:hover,
+        &:focus {
+            color: $teal;
+            text-decoration-color: darken($color: $teal, $amount: 10%);
+        }
+    }
+}
+
+a.text-light {
+    &:hover,
+    &:focus {
+        color: $teal !important;
+        text-decoration: 2px solid underline;
+        text-decoration-color: darken($color: $teal, $amount: 10%) !important;
+    }
+}
+
+header.bg-primary,
+footer.bg-primary {
+    background-color: $black !important;
+}
+
+header .navbar {
+    padding: 0;
+}
+
+.navbar-brand {
+    .logo-img {
+        height: 3rem !important;
+        width: auto !important;
+        margin: 1.75rem 3rem 1.75rem calc(3rem - 20px);
+    }
+}

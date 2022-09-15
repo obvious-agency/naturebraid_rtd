@@ -34,8 +34,8 @@ html_static_path = ['_static']
 html_css_files = ["css/custom.css"]
 
 html_theme_options = dict(
-    project_name = "Nature Braid documentation",
-    logo = "img/luci-logo-transparent.png",
+    project_name = "Nature Braid Documentation",
+    logo = "img/nature-braid-logo-transparent.png",
     logo_alt = "Nature Braid",
     logo_height = 59,
     logo_url = "/",
