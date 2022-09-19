@@ -10293,9 +10293,17 @@ These overrides are necessary to make the version picker work with the Sphinx Wa
   font-weight: 700;
 }
 
+*::selection {
+  background-color: #18cbc6;
+}
+
 body {
   font-family: "Red Hat Display", sans-serif;
+  font-size: 17px;
   color: #1C272F;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  word-spacing: 0.04em;
 }
 body a,
 body .page-toc a {

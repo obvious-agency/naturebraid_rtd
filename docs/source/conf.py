@@ -31,7 +31,8 @@ master_doc = 'index'
 
 html_theme = 'sphinx_wagtail_theme'
 html_static_path = ['_static']
-html_css_files = ["css/custom.css"]
+html_favicon = '_static/favicon-32x32.png'
+html_css_files = ['css/custom.css']
 
 html_theme_options = dict(
     project_name = "Nature Braid Documentation",
