@@ -1,6 +1,6 @@
 # Overview
 
-The Nature Braid (NB) framework, is the next-generation extension and software implementation of the Land Utilisation and Capability Indicato (LUCIr) model which was the second-generation of the Polyscape framework, as described in [Jackson et al., (2013)](https://www.sciencedirect.com/science/article/pii/S0169204612003532). NB illustrates the impacts of land use, management, climate, etc on the environment and associated ecosystem services. It runs at fine spatial scales to understand the flows of energy, water, mass, and contaminants through the landscape and to water bodies. It compares the current capabilities of the landscape estimates of their potential capabilities.
+The Nature Braid (NB) framework, is the next-generation extension and software implementation of the Land Utilisation and Capability Indicato (LUCI) model which was the second-generation of the Polyscape framework, as described in [Jackson et al., (2013)](https://www.sciencedirect.com/science/article/pii/S0169204612003532). NB illustrates the impacts of land use, management, climate, etc on the environment and associated ecosystem services. It runs at fine spatial scales to understand the flows of energy, water, mass, and contaminants through the landscape and to water bodies. It compares the current capabilities of the landscape estimates of their potential capabilities.
 
 ## The NB framework includes models for
 
@@ -81,6 +81,8 @@ A number of national datasets are supported for United Kingdom and New Zealand a
 
     - Generate Baseline
 
+    - Generate new land cover scenario
+
 - Individual Ecosystem Services
 
     - Agricultural Productivity
@@ -110,18 +112,24 @@ A number of national datasets are supported for United Kingdom and New Zealand a
     - Tradeoff maps
 
 - Aggregation and disaggregation tools
-    
-    - Report aggregate habitat metrics
+
+    - Aggregate LUCI input data
+
+    - Calculate aggregate input statistics
+
+    - Create data aggregation grid
     
     - Report aggregate input statistics
     
     - Report aggregate single service statistics
     
-    - Report aggregate soil metrics
-    
     - Report aggregate tradeoff statistics
 
 - Miscellaneous
+
+    - Batch clip results and produce statistics (batch run folder)
+
+    - Batch clip results and produce statistics (individual folders)
     
     - Calculate stream and study area statistics
     
@@ -134,10 +142,12 @@ A number of national datasets are supported for United Kingdom and New Zealand a
     - Clip data in folder
     
     - Clip LUCI Subset Output
-    
-    - Create Polygon Grid
+
+    - Find confluences in stream network
     
     - Floodplain inundation
+
+    - Get raster values at points
     
     - Recondition DEM
     
