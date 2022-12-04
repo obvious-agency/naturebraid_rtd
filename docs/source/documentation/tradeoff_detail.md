@@ -82,3 +82,26 @@ Number of tradeoffs being considered:
 | Summary combinations | 6 | 10 | 15 | 21 | 28 | 36 | 45 | ${\sum_{i=1}^{N+1} i}$ |
 
 More generally, if the number of categories considered in each individual service changes to C, the number of individual combinations is C to the power of N. This clearly inflates even more rapidly as C increases, as demonstrated in the following table:
+
+| Number of categorisations in individual servies | 1\* | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| 2 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 |
+| 3\* | 3 | 9 | 27 | 81 | 243 | 729 | 2187 | 6581 |
+| 4 | 4 | 16 | 64 | 256 | 1024 | 4096 | 16384 | 65536 |
+| 5 | 5 | 25 | 125 | 625 | 3125 | 15625 | 78125 | 390625 |
+
+We can also start to see how more complex /less tractable even the summary combinations become as the categorisations of single services increase:
+
+Number of tradeoffs being considered:
+
+| Number of categorisations in individual servies | 1\* | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| 2 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| 3\* | 3 | 6 | 10 | 15 | 21 | 28 | 36 | 45 |
+| 4 | 4 | 10 | 20 | 35 | 56 | 84 | 120 | 165 |
+| 5 | 5 | 15 | 35 | 70 | 126 | 210 | 330 | 495 |
+| 6 | 6 | 21 | 56 | 126 | 252 | 472 | 802 | 1297 |
+| 7 | 7 | 28 | 84 | 210 | 472 | 944 | 1746 | 3043 |
+| 8 | 8 | 36 | 120 | 330 | 802 | 1746 | 3492 | 6535 |
+
+\[Need to ask Beth about the last table in the documentation]
