@@ -14,6 +14,7 @@ More information on the Nature Braid including our team and research projects ca
 :titlesonly: true
 
 documentation/overview
+documentation/install
 documentation/quick_start_guide
 documentation/preprocessing_tools_guide
 documentation/individual_ecosystem_services_tools
