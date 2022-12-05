@@ -4,13 +4,13 @@
 
 ### Summary
 
-This tool allows a selection (or all) of the multiple ecosystem function models available in LUCI to be run in "batch process" mode, saving their various outputs into a user-specified folder. A complementary tool then allows these output to be loaded into the current ArcMap session for inspection.
+This tool allows a selection (or all) of the multiple ecosystem function models available in NB to be run in "batch process" mode, saving their various outputs into a user-specified folder. A complementary tool then allows these output to be loaded into the current ArcMap session for inspection.
 
 ### Input
 
 - **Ecosystem services output folder:** Specify the path and folder where output from this tool should be stored. 
 
-- **Input:** Study area baseline folder:** Specify the path and folder where files are stored from running the **Generate Baseline** tool. 
+- **Input: Study area baseline folder:** Specify the path and folder where files are stored from running the **Generate Baseline** tool. 
 
 - **Tickboxes to run the individual ecosystem services:** Select the ecosystem services of interest. 
 
@@ -56,17 +56,17 @@ This tool will automatically load the outputs to the ArcMap session.
 
 ### Summary
 
-LUCI Trade-off maps identify where opportunities exist to improve delivery of services whilst protecting areas which currently delivery a high level of service. LUCI's individual service calculations include an output for each service where each cell in the terrestrial landscape is categorised into one of five provisioning categories from high to low, and this categorisation is further reduced into three categories for trade-off analysis, as indicated in the table below.
+NB Trade-off maps identify where opportunities exist to improve delivery of services whilst protecting areas which currently delivery a high level of service. NB's individual service calculations include an output for each service where each cell in the terrestrial landscape is categorised into one of five provisioning categories from high to low, and this categorisation is further reduced into three categories for trade-off analysis, as indicated in the table below.
 
-| Categories for LUCI individual service categories | Categories for LUCI tradeoffs |
+| Categories for NB individual service categories | Categories for NB tradeoffs |
 | --- | --- |
 | a) Very high existing service <br>b) High existing service | High existing good |
 | c) Moderate or marginal service | Negligible existing good but negligible opportunity to improve significantly |
 | a) Small or degrading service <br>b) Very small or rapidly degrading service | Bad or negligible existing good with potential to improve |
 
-LUCI then layers those categorised services to identify parts of the landscape where trade-offs versus win-win situations exist, and where management interventions could enhance or protect multiple services. Areas with multiple "high existing good" and no "bad" or "potential to significantly improve" areas are flagged as win-win situations where status quo should be preserved. Similarly, areas where multiple "bad" or "potential to significantly improve" classifications exist are flagged as "win-win" situations for implementation of change. Areas where trade-offs exist where significant improvements of some services would likely go in tandem with degradation of other services- are separately categorised, as are areas where there are not obvious advantages in either preserving status quo or implementing management change.
+NB then layers those categorised services to identify parts of the landscape where trade-offs versus win-win situations exist, and where management interventions could enhance or protect multiple services. Areas with multiple "high existing good" and no "bad" or "potential to significantly improve" areas are flagged as win-win situations where status quo should be preserved. Similarly, areas where multiple "bad" or "potential to significantly improve" classifications exist are flagged as "win-win" situations for implementation of change. Areas where trade-offs exist where significant improvements of some services would likely go in tandem with degradation of other services- are separately categorised, as are areas where there are not obvious advantages in either preserving status quo or implementing management change.
 
-For trade-off analysis, this categorisation is further reduced into "high existing good", "bad or negligible existing good with potential to improve", or "negligible existing good but negligible opportunity to improve significantly". LUCI then layers those categorised services to identify parts of the landscape where trade-offs versus win-win situations exist, and where management interventions could enhance or protect multiple services. Areas with multiple "high existing good" and no "bad" or "potential to significantly improve" areas are flagged as win-win situations where status quo should be preserved. Similarly, areas where multiple "bad" or "potential to significantly improve" classifications exist are flagged as "win-win" situations for implementation of change. Areas where trade-offs exist where significant improvements of some services would likely go in tandem with degradation of other services- are separately categorised, as are areas where there are not obvious advantages in either preserving status quo or implementing management change.
+For trade-off analysis, this categorisation is further reduced into "high existing good", "bad or negligible existing good with potential to improve", or "negligible existing good but negligible opportunity to improve significantly". NB then layers those categorised services to identify parts of the landscape where trade-offs versus win-win situations exist, and where management interventions could enhance or protect multiple services. Areas with multiple "high existing good" and no "bad" or "potential to significantly improve" areas are flagged as win-win situations where status quo should be preserved. Similarly, areas where multiple "bad" or "potential to significantly improve" classifications exist are flagged as "win-win" situations for implementation of change. Areas where trade-offs exist where significant improvements of some services would likely go in tandem with degradation of other services- are separately categorised, as are areas where there are not obvious advantages in either preserving status quo or implementing management change.
 
 ### Input
 
@@ -102,7 +102,23 @@ For trade-off analysis, this categorisation is further reduced into "high existi
 
 - **Weight for each of the ecosystem services:** The weighting for the services can be specified. Weighting that will be given to this service. For the mixed weighted arithmetic/conservative approach a weight of -1 will cause this service to be treated as conservative. In all other cases, the number must be greater than zero. Its proportional weighting in the tradeoff calculation is the contribution this makes to the overall sum of weights. *Default value is 1.*
 
-- **Habitant being considered for what species?:** Specify the species for which habitat connectivity was modelled. Currently this model defaults to 11 for broadleaved woodland generic focal species Parameterisation for further species will take place according to LUCI project needs. *Default value is 11.*
+- **Habitant being considered for what species?:** Specify the species for which habitat connectivity was modelled. Currently this model defaults to 11 for broadleaved woodland generic focal species Parameterisation for further species will take place according to NB project needs. *Default value is 11.*
+
+Up to three (3) other rasters can be included in the tradeoff analysis. These can be ouputs from the RUSLE tool or rasters from other non-NB tools, as long as they have the same extent and cell size as the NB output rasters. The values in the raster **must** be reclassified to the following:
+
+| Raster value | Meaning |
+| --- | --- |
+| 1 | Very high existing service |
+| 2 | High existing service |
+| 3 | Moderate or marginal service |
+| 4 | Small or degrading service |
+| 5 | Very small or rapidly degrading service |
+
+- **Consider user-input service 1/2/3:** Tick these boxes if you want your user-input service rasters to also be included in the calculation.
+
+- **Raster for user-input service 1/2/3:** Specify the path and filename to the user-input raster to be considered for tradeoff analyses. Note: remember to reclassify the rasters to have the scale of 1 to 5 based on the table above.
+
+- **Weight for user-input service 1/2/3:** The weighting for the services can be specified. Weighting that will be given to this service. For the mixed weighted arithmetic/conservative approach a weight of -1 will cause this service to be treated as conservative. In all other cases, the number must be greater than zero. Its proportional weighting in the tradeoff calculation is the contribution this makes to the overall sum of weights. *Default value is 1.*
 
 ### Output
 
@@ -133,3 +149,9 @@ The rasters and tables are named with combinations of abbreviations of the servi
 - **Nit:** Nitrogen 
 
 - **Pho:** Phosphorus
+
+- **Us1:** User-input service 1
+
+- **Us2:** User-input service 2
+
+- **Us3:** User-input service 3
