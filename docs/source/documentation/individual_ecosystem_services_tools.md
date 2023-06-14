@@ -336,7 +336,7 @@ Within the output folder are additional output files showing instream nutrient c
 
 ### Summary
 
-This tool estimates the annual soil loss (tons/km<sup>2</sup>/yr) using the Revised Universal Soil Loss Equation (RUSLE) approach, and sediment delivery vulnerability depending on whether the soil loss is occurring on non-mitigated land. There are multiple approaches to calculating the rainfall erosivity and the slope length-steepness factor.
+This tool estimates the annual soil loss (tons/tonnes/yr) using the Revised Universal Soil Loss Equation (RUSLE) approach, and sediment delivery vulnerability depending on whether the soil loss is occurring on non-mitigated land. There are multiple approaches to calculating the rainfall erosivity and the slope length-steepness factor.
 
 ### Input
 
